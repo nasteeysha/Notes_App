@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyNotes</string>
+    <string name="ADD_NEW_NOTE">Создать новую заметку</string>
+    <string name="ADD_NOTE">Создать заметку</string>
+    <string name="TITLE">Заголовок</string>
+    <string name="SUBTITLE">Подзаголовок</string>
+    <string name="WHAT_BD">Выберите БД</string>
+    <string name="UPDATE">Обновить</string>
+    <string name="DELETE">Удалить</string>
+    <string name="NAV_BACK">Назад</string>
+    <string name="EDIT_NOTE">Редактирование заметки</string>
+    <string name="UPDATE_NOTE">Обновить заметку</string>
+    <string name="NOTE_TITLE">Заголовок заметки</string>
+    <string name="NOTE_SUBTITLE">Подзаголовок заметки</string>
+</resources>

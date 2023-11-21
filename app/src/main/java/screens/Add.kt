@@ -26,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,14 +34,11 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.MyNotes.R
 import com.example.nasteeysha_notes.MainViewModel
 import com.example.nasteeysha_notes.MainViewModelFactory
 import com.example.nasteeysha_notes.model.Note
 import com.example.nasteeysha_notes.ui.theme.Nasteeysha_NotesTheme
-import com.example.nasteeysha_notes.utils.Constants.Keys.ADD_NEW_NOTE
-import com.example.nasteeysha_notes.utils.Constants.Keys.ADD_NOTE
-import com.example.nasteeysha_notes.utils.Constants.Keys.NOTE_SUBTITLE
-import com.example.nasteeysha_notes.utils.Constants.Keys.NOTE_TITLE
 import navigation.NavRoute
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -70,7 +68,7 @@ fun AddScreen(navController: NavHostController, viewModel: MainViewModel) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = ADD_NEW_NOTE,
+                text = stringResource(id = R.string.ADD_NEW_NOTE),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 modifier=Modifier.padding(vertical = 8.dp)
@@ -80,14 +78,14 @@ fun AddScreen(navController: NavHostController, viewModel: MainViewModel) {
                 title = it
                 isButtonEnabled = title.isNotEmpty() && subtitle.isNotEmpty()
                                                              },
-                label = { Text(text = NOTE_TITLE)},
+                label = { Text(text = stringResource(id = R.string.NOTE_TITLE))},
                 isError = title.isEmpty()
             )
             OutlinedTextField(value = subtitle, onValueChange = {
                 subtitle = it
                 isButtonEnabled = title.isNotEmpty() && subtitle.isNotEmpty()
                                                                 },
-                label = { Text(text = NOTE_SUBTITLE)},
+                label = { Text(text = stringResource(id = R.string.NOTE_SUBTITLE))},
                         isError = subtitle.isEmpty()
             )
             Row{
@@ -144,7 +142,7 @@ fun AddScreen(navController: NavHostController, viewModel: MainViewModel) {
                     }
 
                 }) {
-                Text(text = ADD_NOTE)
+                Text(text = stringResource(id = R.string.ADD_NOTE))
             }
 
         }

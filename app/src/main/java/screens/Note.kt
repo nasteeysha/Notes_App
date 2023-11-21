@@ -33,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -40,6 +41,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.MyNotes.R
 import com.example.nasteeysha_notes.MainViewModel
 import com.example.nasteeysha_notes.MainViewModelFactory
 import com.example.nasteeysha_notes.bottomSheet.BottomSheetValue
@@ -47,15 +49,8 @@ import com.example.nasteeysha_notes.bottomSheet.ModalBottomSheetLayout
 import com.example.nasteeysha_notes.bottomSheet.rememberBottomSheetState
 import com.example.nasteeysha_notes.model.Note
 import com.example.nasteeysha_notes.ui.theme.Nasteeysha_NotesTheme
-import com.example.nasteeysha_notes.utils.Constants.Keys.DELETE
-import com.example.nasteeysha_notes.utils.Constants.Keys.EDIT_NOTE
 import com.example.nasteeysha_notes.utils.Constants.Keys.EMPTY
-import com.example.nasteeysha_notes.utils.Constants.Keys.NAV_BACK
 import com.example.nasteeysha_notes.utils.Constants.Keys.NONE
-import com.example.nasteeysha_notes.utils.Constants.Keys.SUBTITLE
-import com.example.nasteeysha_notes.utils.Constants.Keys.TITLE
-import com.example.nasteeysha_notes.utils.Constants.Keys.UPDATE
-import com.example.nasteeysha_notes.utils.Constants.Keys.UPDATE_NOTE
 import kotlinx.coroutines.launch
 import navigation.NavRoute
 import java.time.LocalDate
@@ -92,7 +87,7 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
                         .padding(all = 32.dp)
                 ) {
                     Text(
-                        text = EDIT_NOTE,
+                        text = stringResource(id = R.string.EDIT_NOTE),
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(vertical = 8.dp)
@@ -100,13 +95,13 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
                     OutlinedTextField(
                         value = title,
                         onValueChange = {title = it},
-                        label = { Text(text = TITLE)},
+                        label = { Text(text = stringResource(id = R.string.TITLE))},
                         isError = title.isEmpty()
                     )
                     OutlinedTextField(
                         value = subtitle,
                         onValueChange = {subtitle = it},
-                        label = { Text(text = SUBTITLE)},
+                        label = { Text(text = stringResource(id = R.string.SUBTITLE))},
                         isError = subtitle.isEmpty()
                     )
                     Row{
@@ -159,11 +154,11 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
                             viewModel.updateNote(note =
                             Note(id = note.id, title = title, subtitle = subtitle)
                             ) {
-                                navController.navigate(NavRoute.Note.route)
+                                navController.navigate(NavRoute.Main.route)
                             }
                         }
                     ) {
-                        Text(text = UPDATE_NOTE)
+                        Text(text = stringResource(id = R.string.UPDATE_NOTE))
 
                     }
                 }
@@ -205,7 +200,7 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
 
             Row(
                 modifier = Modifier
-                    .padding(horizontal = 70.dp)
+                    .padding(horizontal = 12.dp)
                     .padding(top = 680.dp)
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -218,7 +213,7 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
                         bottomSheetState.show()
                     }
                 }) {
-                    Text(text = UPDATE)
+                    Text(text = stringResource(id = R.string.UPDATE))
 
                 }
                 Button(
@@ -227,7 +222,7 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
                         navController.navigate(NavRoute.Main.route)
                     }
                 }) {
-                    Text(text = DELETE)
+                    Text(text = stringResource(id = R.string.DELETE))
 
                 }
                 Button(
@@ -238,7 +233,7 @@ fun NoteScreen(navController: NavHostController, viewModel: MainViewModel, noteI
                     onClick = {
                         navController.navigate(NavRoute.Main.route)
                     }) {
-                    Text(text = NAV_BACK)
+                    Text(text = stringResource(id =  R.string.NAV_BACK))
 
                 }
 
